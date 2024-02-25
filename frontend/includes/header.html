@@ -1,0 +1,54 @@
+{{ define "header" }}
+
+<style>
+  nav {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+  }
+
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  nav ul li {
+    display: inline;
+    margin-right: 10px;
+  }
+
+  nav ul li a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease;
+  }
+
+  nav ul li a:hover {
+    color: #007BFF;
+  }
+</style>
+
+<header>
+  <nav>
+    <div>
+      <div>
+        <ul>
+          <li>
+            <a href="/">Calculator</a>
+          </li>
+          <li>
+            <a href="/history">History</a>
+          </li>
+          <li>
+            <a href="/status">Status</a>
+          </li>
+          <li>
+            <a href="/settings">Settings</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+{{ end }}

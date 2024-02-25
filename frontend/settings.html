@@ -1,0 +1,81 @@
+{{ define "settings" }}
+
+<!DOCTYPE html>
+<html lang="ru">
+
+{{ template "head" }}
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+
+  main {
+    box-sizing: border-box;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  label,
+  input {
+    margin-bottom: 10px;
+  }
+
+  input,
+  button {
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  button {
+    background-color: #007BFF;
+    color: white;
+    border: 2px solid #007BFF;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    border-radius: 2px;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+    cursor: pointer;
+  }
+
+  button:active {
+    background-color: #004080;
+    border-color: #004080;
+  }
+</style>
+
+<body>
+  {{ template "header" }}
+  <main>
+    <h1>Server settings</h1>
+
+    <form action="/saving/" method="post">
+      <label>Addition operation (+)</label>
+      <input value="{{ .Plus }}" name="plus" type="text" placeholder="Processing time">
+      <br>
+
+      <label>Subtraction operation (-)</label>
+      <input value="{{ .Minus }}" name="minus" type="text" placeholder="Processing time">
+      <br>
+
+      <label>Multiplication operation (*)</label>
+      <input value="{{ .Multiple }}" name="multiple" type="text" placeholder="Processing time">
+      <br>
+
+      <label>Division operation (/)</label>
+      <input value="{{ .Division }}" name="division" type="text" placeholder="Processing time">
+      <br>
+
+      <button class="btn btn-warning">Save</button>
+    </form>
+  </main>
+</body>
+
+</html>
+
+{{ end }}

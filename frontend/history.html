@@ -1,0 +1,78 @@
+{{ define "history" }}
+
+<!DOCTYPE html>
+<html lang="ru">
+
+{{ template "head" }}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+        word-wrap: break-word;
+    }
+
+    th,
+    td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+    th {
+        background-color: #007BFF;
+        color: white;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+</style>
+
+<body>
+    {{ template "header" }}
+    <main>
+        <h1>Expressions history</h1>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Status</th>
+                        <th>Result</th>
+                        <th>Expression</th>
+                        <th>Created at</th>
+                        <th>Completed at</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{ range . }}
+                    <tr>
+                        <td>{{ .Status }}</td>
+                        <td>{{ .Result }}</td>
+                        <td>{{ .Expression }}</td>
+                        <td>{{ .CreatedAt.Format "2006-01-02 15:04:05" }}</td>
+                        <td>{{ .CompletedAt.Format "2006-01-02 15:04:05" }}</td>
+                    </tr>
+                    {{ end }}
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+
+</html>
+
+{{ end }}

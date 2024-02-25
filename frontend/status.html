@@ -1,0 +1,39 @@
+{{ define "status" }}
+
+<!DOCTYPE html>
+<html lang="ru">
+
+{{ template "head" }}
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  li,
+  h2 {
+    color: #007BFF;
+  }
+</style>
+
+<body>
+  {{ template "header" }}
+  <main>
+    <h1>Free workers</h1>
+    <h2>{{ .FreeWorkers }}/{{ .MaxWorkers }}</h2>
+    <h1>Expressions in processing</h1>
+    <ul>
+      {{ range .Expressions }}
+      <li>{{ . }}</li>
+      {{ end }}
+    </ul>
+  </main>
+</body>
+
+</html>
+
+{{ end }}
